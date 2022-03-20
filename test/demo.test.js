@@ -2,13 +2,7 @@
 import {render, screen, fireEvent, waitFor} from '@testing-library/vue';
 import App from '../src/App';
 
-import axios from 'axios';
-import xhrAdapter from 'axios/lib/adapters/xhr';
-import HttpRequestMock from 'http-request-mock';
 import '../mock/.runtime.js';
-
-axios.defaults.adapter = xhrAdapter;
-HttpRequestMock.setupForUnitTest('xhr');
 
 it('req1 -> req2 -> req3', async () => {
   render(App);
