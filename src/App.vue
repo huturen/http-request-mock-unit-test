@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h5>http-request-mock: Mock data separation</h5>
+    <h5>http-request-mock: Unit test</h5>
     <div class="request">
       <p>
         假设有3个请求, 请求逻辑有依赖关系, 这里面成功/错误的组合会有很多种。
