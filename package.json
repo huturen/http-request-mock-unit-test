@@ -24,7 +24,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "http-request-mock": "^1.6.10",
+    "http-request-mock": "^1.6.15",
     "jest": "^26.6.3"
   },
   "eslintConfig": {
