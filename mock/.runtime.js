@@ -1,7 +1,7 @@
 /* eslint-disable */
 let mocker;
 
-const HttpRequestMock = require("http-request-mock/http-request-mock.js");
+const HttpRequestMock = require("http-request-mock");
 mocker = HttpRequestMock.setup();
 mocker.mock({
   "url": "https://www.api.com/req1",
