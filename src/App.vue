@@ -35,10 +35,8 @@
       </div>
       <hr />
       <div>
-        <b>test case: test/demo.test.js</b>:
-        <div><img src="/img/unittest-code.png" /></div>
-        <b>test case: test/use.test.js (An alternative way to test.)</b>:
-        <div><img src="/img/unittest-use.png" /></div>
+        <b>The same mock case can be reused in unit tests, CI integration and debugging</b>:
+        <div><img src="/img/unittest-demo.png" /></div>
         <div><img src="/img/unittest-res.png" /></div>
       </div>
     </div>

@@ -1,16 +1,21 @@
 /* global it, expect */
-import {render, screen, fireEvent, waitFor} from '@testing-library/vue';
-import App from '../src/App';
 
-import '../mock/.runtime.js';
+import axios from 'axios';
+import HttpRequestMock from 'http-request-mock';
+const mocker = HttpRequestMock.setupForUnitTest('xhr');
+
+mocker.use('../mock/samples/req1.js');
+mocker.use('../mock/samples/req2.js');
+mocker.use('../mock/samples/req3.js');
 
 it('req1 -> req2 -> req3', async () => {
-  render(App);
-  const button = screen.getByText('req1 -> req2 -> req3');
-  await fireEvent.click(button);
+  const res1 = await axios.get('https://www.api.com/req1');
+  const res2 = await axios.get('https://www.api.com/req2');
+  const res3 = await axios.post('https://www.api.com/req3', {
+    err: res2.data.result,
+  });
 
-  const assert = text => expect(screen.queryByText(text)).toBeTruthy();
-  await waitFor(() => assert('result1: some normal data of req1'));
-  await waitFor(() => assert('result2: some error data of req2'));
-  await waitFor(() => assert('result3: [req3] -> some error data of req2'));
+  expect(res1.data.result).toBe('some normal data of req1');
+  expect(res2.data.result).toBe('some error data of req2');
+  expect(res3.data.result).toBe('[req3] -> some error data of req2');
 });
